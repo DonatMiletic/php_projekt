@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2026 at 08:18 PM
+-- Generation Time: Jan 11, 2026 at 09:00 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,7 +42,9 @@ CREATE TABLE `contact_messages` (
 --
 
 INSERT INTO `contact_messages` (`id`, `name`, `surname`, `email`, `country`, `message`, `created_at`) VALUES
-(1, 'Dominik', 'Karuc', 'domkaruc@gmail.com', 'hr', 'Veoma lijep fan page <3', '2026-01-11 18:01:03');
+(1, 'Dominik', 'Karuc', 'domkaruc@gmail.com', 'hr', 'Veoma lijep fan page <3', '2026-01-11 18:01:03'),
+(3, 'Antonio', 'Skara', 'conio1240@fer.hr', 'hr', '', '2026-01-11 19:48:25'),
+(4, 'Antonio', 'Skara', 'conio1240@fer.hr', 'hr', 'KKKKKKKK', '2026-01-11 19:48:58');
 
 -- --------------------------------------------------------
 
@@ -93,7 +95,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `email`, `password_hash`, `role`, `created_at`) VALUES
 (1, 'Donat', 'Miletic', 'DoKi', 'donatmiletic01@gmail.com', '$2y$10$C.AvJiEhyMT5cJQ6rXR4xO7r3AFo0k852wdZiwra4GXhIrlUaJEPO', 'admin', '2026-01-11 18:31:00'),
-(2, 'Dominik', 'Karuc', 'domi2', 'domi2@gmail.com', '$2y$10$pneNAbMWOjMi5yjjTzYcE.YcI6laRNJboBi.a2iZ9hpFNvA3Jsxni', 'user', '2026-01-11 19:05:37');
+(2, 'Dominik', 'Karuc', 'domi2', 'domi2@gmail.com', '$2y$10$pneNAbMWOjMi5yjjTzYcE.YcI6laRNJboBi.a2iZ9hpFNvA3Jsxni', 'user', '2026-01-11 19:05:37'),
+(3, 'Antonio', 'Škara', 'tarajekul', 'conio1240@fer.hr', '$2y$10$T0hvWVKLwJCeqmmaBY/rMerBbPs7hnRWTwwwaXeyqQB2lMTez7m7m', 'user', '2026-01-11 19:44:06');
 
 --
 -- Indexes for dumped tables
@@ -127,7 +130,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contact_messages`
 --
 ALTER TABLE `contact_messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -139,7 +142,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

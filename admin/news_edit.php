@@ -20,9 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $description = trim($_POST["description"] ?? "");
   $is_archived = isset($_POST["is_archived"]) ? 1 : 0;
 
-  $pictureName = $news["picture"]; // default ostaje staro
+  $pictureName = $news["picture"]; 
 
-  // upload nove slike (opcijski)
+  
   if (!empty($_FILES["picture"]["name"])) {
     $allowed = ["image/jpeg" => "jpg", "image/png" => "png", "image/webp" => "webp"];
     $type = $_FILES["picture"]["type"] ?? "";
@@ -42,7 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       if (!move_uploaded_file($tmp, $destPath)) {
         $error = "Upload failed.";
       } else {
-        // obriši staru sliku ako postoji i ako je bila uploadana
         if (!empty($news["picture"])) {
           $oldPath = $destDir . $news["picture"];
           if (is_file($oldPath)) @unlink($oldPath);
@@ -60,7 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $stmt->execute([$title, $description, $pictureName, $is_archived, $id]);
       $success = true;
 
-      // refresh data
       $stmt = $pdo->prepare("SELECT * FROM news WHERE id = ? LIMIT 1");
       $stmt->execute([$id]);
       $news = $stmt->fetch();

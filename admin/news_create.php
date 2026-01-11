@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   $pictureName = null;
 
-  // upload slike (opcijski)
+
   if (!empty($_FILES["picture"]["name"])) {
     $allowed = ["image/jpeg" => "jpg", "image/png" => "png", "image/webp" => "webp"];
     $type = $_FILES["picture"]["type"] ?? "";

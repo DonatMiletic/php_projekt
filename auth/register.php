@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $error = "All fields are required.";
   } else {
 
-    // Provjera username/email
     $stmt = $pdo->prepare("SELECT id FROM users WHERE username = ? OR email = ? LIMIT 1");
     $stmt->execute([$username, $email]);
 

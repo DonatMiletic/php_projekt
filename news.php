@@ -4,13 +4,13 @@ require __DIR__ . "/includes/db.php";
 
 $id = isset($_GET["id"]) ? (int)$_GET["id"] : 0;
 
-// helper: dohvati last read id iz cookie-a
+
 $lastReadId = isset($_COOKIE["last_read_news_id"]) ? (int)$_COOKIE["last_read_news_id"] : 0;
 
 echo "<h1>News</h1>";
 
 if ($id > 0) {
-  // prikaz jedne vijesti
+  
   $stmt = $pdo->prepare("SELECT * FROM news WHERE id = ? LIMIT 1");
   $stmt->execute([$id]);
   $row = $stmt->fetch();
@@ -18,7 +18,7 @@ if ($id > 0) {
   if (!$row) {
     echo "<p>Article not found.</p>";
   } else {
-    // spremi u cookie (7 dana)
+   
     setcookie("last_read_news_id", (string)$row["id"], time() + 7*24*60*60, $BASE_URL);
 
     $img = $row["picture"] ? ($BASE_URL . "/assets/news/" . $row["picture"]) : "";
@@ -42,7 +42,7 @@ if ($id > 0) {
   }
 
 } else {
-  // (A) Last read news box (ako postoji cookie)
+ 
   if ($lastReadId > 0) {
     $stmt = $pdo->prepare("SELECT id, title FROM news WHERE id = ? LIMIT 1");
     $stmt->execute([$lastReadId]);
@@ -62,7 +62,7 @@ if ($id > 0) {
     }
   }
 
-  // (B) Lista vijesti
+  
   $stmt = $pdo->query("SELECT * FROM news WHERE is_archived = 0 ORDER BY created_at DESC");
   $rows = $stmt->fetchAll();
 
