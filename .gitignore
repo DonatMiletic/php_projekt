@@ -1,0 +1,14 @@
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node (ako ikad bude)
+node_modules/
+
+# Logs
+*.log
+
+# Optional: ignore uploads if you want
+# assets/news/uploads/
